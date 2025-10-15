@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gensyn AI - The Network for Machine Intelligence</title>
+    <meta name="description" content="Experience the future of decentralized AI with Gensyn's cutting-edge machine intelligence network. Chat with our AI about revolutionary decentralized compute protocols.">
+    <!-- Critical inline styles to prevent black screen -->
+    <style>
+        /* Emergency fallback styles */
+        body, html {
+            background-color: #1a1a1a !important;
+            color: #ffffff !important;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        .page-root {
+            background-color: #1a1a1a !important;
+            min-height: 100vh;
+            color: #ffffff;
+        }
+        /* Loading indicator */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            z-index: 9999;
+            font-family: Arial, sans-serif;
+        }
+        .loading-screen.hidden {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body style="background-color: #1a1a1a; color: #ffffff; margin: 0; padding: 0;">
+    <!-- Loading screen to prevent black screen flash -->
+    <div class="loading-screen" id="loadingScreen">
+        <div style="text-align: center;">
+            <div style="font-size: 24px; margin-bottom: 16px;">🤖 Gensyn AI</div>
+            <div style="font-size: 14px; opacity: 0.7;">Loading ChatBot...</div>
+        </div>
+    </div>
+    <main class="page-root">
+        <div class="background-logo" aria-hidden="true"></div>
+        
+        <header class="topbar fade-in">
+            <div class="header-content">
+                <div class="header-left"></div>
+                <div class="header-center">
+                    <img src="https://yourimageshare.com/ib/TjLHf1VqGm.png" alt="Gensyn Logo" class="logo" onerror="this.onerror=null; this.src='https://cdn.prod.website-files.com/66bc6da8fe284e4693088ff7/66bc6da8fe284e4693088ffe_Gensyn-Symbol.svg';">
+                    <div class="brand-text">
+                        <h1>Gensyn AI ChatBot</h1>
+                        <p class="brand-subtitle">The Network of Machine Intelligence</p>
+                    </div>
+                </div>
+                <nav class="header-right">
+                    <a href="https://gensyn.ai" target="_blank" class="nav-btn">Home</a>
+                    <a href="https://blog.gensyn.ai" target="_blank" class="nav-btn">Blogs</a>
+                    <a href="https://docs.gensyn.ai" target="_blank" class="nav-btn">Docs</a>
+                </nav>
+            </div>
+        </header>
+        
+        <section class="center-area">
+            <div class="chat-card slide-up">
+                <h2 class="card-title">Ask Gensyn AI</h2>
+                <p class="muted">Discover the future of decentralized machine intelligence. Ask about our revolutionary compute protocol, tokenomics, or how to participate in the network.</p>
+                
+                <div class="chat-root">
+                    <div class="messages" role="log" aria-live="polite" id="messages">
+                        <div class="message bot">
+                            <div class="bubble welcome-message">
+                                <span>Hi! I'm Gensyn AI, your guide to decentralized machine intelligence. What would you like to explore today?</span>
+                            </div>
+                            <div class="message-timestamp" id="welcomeTimestamp"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Typing indicator (initially hidden) -->
+                    <div class="typing-indicator hidden" id="typingIndicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <textarea 
+                            id="messageInput" 
+                            rows="1" 
+                            placeholder="Ask about decentralized AI, compute protocols, tokenomics..." 
+                            class="message-textarea"
+                            maxlength="1000"
+                            aria-label="Type your message"
+                        ></textarea>
+                        <button id="sendButton" class="send-btn glow-effect" aria-label="Send message">
+                            <span class="btn-text">Send</span>
+                            <span class="btn-loading hidden"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <aside class="info-card slide-up" style="animation-delay: 0.2s;">
+                <h3>Core Principles</h3>
+                <ul class="principles-list" role="list">
+                    <li role="listitem" tabindex="0">
+                        <strong>🌐 Decentralized AI</strong>
+                        Community-first model training &amp; governance
+                    </li>
+                    <li role="listitem" tabindex="0">
+                        <strong>🤝 Open Participation</strong>
+                        Model contributions and evaluation by everyone
+                    </li>
+                    <li role="listitem" tabindex="0">
+                        <strong>🔍 Transparency</strong>
+                        Verifiable training and reward mechanisms
+                    </li>
+                    <li role="listitem" tabindex="0">
+                        <strong>📈 Scalability</strong>
+                        Modular components to scale compute and data
+                    </li>
+                </ul>
+                
+                <div style="margin-top: var(--space-24); padding-top: var(--space-20); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                    <p style="font-size: var(--font-size-sm); color: var(--gensyn-text-muted); margin: 0; text-align: center; line-height: 1.5;">
+                        💡 <em>Building the world's first truly decentralized machine learning compute protocol</em>
+                    </p>
+                </div>
+            </aside>
+        </section>
+        
+        <footer class="page-footer">
+            <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-4);">
+                <span style="color: var(--gensyn-text-muted); font-size: var(--font-size-sm);">made with 🩷 by</span>
+                <a href="https://x.com/kaizoku_ap" target="_blank" class="footer-link">kaizoku</a>
+            </div>
+        </footer>
+    </main>
+    
+    <script>
+        // Hide loading screen after a short delay
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
+            }, 500);
+        });
+        
+        // Fallback to hide loading screen if load event doesn't fire
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+            }
+        }, 3000);
+        
+        // Debug logging
+        console.log('🚀 Gensyn AI ChatBot - Page loading...');
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
