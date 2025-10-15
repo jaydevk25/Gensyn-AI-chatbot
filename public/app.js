@@ -1,1932 +1,646 @@
-:root {
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
-
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
-
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
-
-  /* Common style patterns */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for opacity control */
-  --color-success-rgb: 33, 128, 141;
-  --color-error-rgb: 192, 21, 47;
-  --color-warning-rgb: 168, 75, 47;
-  --color-info-rgb: 98, 108, 113;
-
-  /* Typography */
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --letter-spacing-tight: -0.01em;
-
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-
-  /* Animation */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-}
-
-/* Dark mode colors */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* RGB versions for opacity control (Dark Mode) */
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-
-    /* Background color tokens (Dark Mode) */
-    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-    /* Semantic Color Tokens (Dark Mode) */
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-primary-active: var(--color-teal-800);
-    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-error: var(--color-red-400);
-    --color-success: var(--color-teal-300);
-    --color-warning: var(--color-orange-400);
-    --color-info: var(--color-gray-300);
-    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-    /* Common style patterns - updated for dark mode */
-    --focus-ring: 0 0 0 3px var(--color-focus-ring);
-    --focus-outline: 2px solid var(--color-primary);
-    --status-bg-opacity: 0.15;
-    --status-border-opacity: 0.25;
-    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-    /* RGB versions for dark mode */
-    --color-success-rgb: var(--color-teal-300-rgb);
-    --color-error-rgb: var(--color-red-400-rgb);
-    --color-warning-rgb: var(--color-orange-400-rgb);
-    --color-info-rgb: var(--color-gray-300-rgb);
-  }
-}
-
-/* Data attribute for manual theme switching */
-[data-color-scheme="dark"] {
-  /* RGB versions for opacity control (dark mode) */
-  --color-gray-400-rgb: 119, 124, 124;
-  --color-teal-300-rgb: 50, 184, 198;
-  --color-gray-300-rgb: 167, 169, 169;
-  --color-gray-200-rgb: 245, 245, 245;
-
-  /* Colorful background palette - Dark Mode */
-  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-  /* Semantic Color Tokens (Dark Mode) */
-  --color-background: var(--color-charcoal-700);
-  --color-surface: var(--color-charcoal-800);
-  --color-text: var(--color-gray-200);
-  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-  --color-primary: var(--color-teal-300);
-  --color-primary-hover: var(--color-teal-400);
-  --color-primary-active: var(--color-teal-800);
-  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-error: var(--color-red-400);
-  --color-success: var(--color-teal-300);
-  --color-warning: var(--color-orange-400);
-  --color-info: var(--color-gray-300);
-  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-  --color-btn-primary-text: var(--color-slate-900);
-  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-  /* Common style patterns - updated for dark mode */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for dark mode */
-  --color-success-rgb: var(--color-teal-300-rgb);
-  --color-error-rgb: var(--color-red-400-rgb);
-  --color-warning-rgb: var(--color-orange-400-rgb);
-  --color-info-rgb: var(--color-gray-300-rgb);
-}
-
-[data-color-scheme="light"] {
-  /* RGB versions for opacity control (light mode) */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-
-  /* RGB versions for light mode */
-  --color-success-rgb: var(--color-teal-500-rgb);
-  --color-error-rgb: var(--color-red-500-rgb);
-  --color-warning-rgb: var(--color-orange-500-rgb);
-  --color-info-rgb: var(--color-slate-500-rgb);
-}
-
-/* Base styles */
-html {
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-h1 {
-  font-size: var(--font-size-4xl);
-}
-h2 {
-  font-size: var(--font-size-3xl);
-}
-h3 {
-  font-size: var(--font-size-2xl);
-}
-h4 {
-  font-size: var(--font-size-xl);
-}
-h5 {
-  font-size: var(--font-size-lg);
-}
-h6 {
-  font-size: var(--font-size-md);
-}
-
-p {
-  margin: 0 0 var(--space-16) 0;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-a:hover {
-  color: var(--color-primary-hover);
-}
-
-code,
-pre {
-  font-family: var(--font-family-mono);
-  font-size: calc(var(--font-size-base) * 0.95);
-  background-color: var(--color-secondary);
-  border-radius: var(--radius-sm);
-}
-
-code {
-  padding: var(--space-1) var(--space-4);
-}
-
-pre {
-  padding: var(--space-16);
-  margin: var(--space-16) 0;
-  overflow: auto;
-  border: 1px solid var(--color-border);
-}
-
-pre code {
-  background: none;
-  padding: 0;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.btn--primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn--primary:active {
-  background: var(--color-primary-active);
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.btn--secondary:active {
-  background: var(--color-secondary-active);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--outline:hover {
-  background: var(--color-secondary);
-}
-
-.btn--sm {
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-sm);
-}
-
-.btn--lg {
-  padding: var(--space-10) var(--space-20);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Form elements */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: var(--space-8) var(--space-12);
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-textarea.form-control {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-}
-
-select.form-control {
-  padding: var(--space-8) var(--space-12);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: var(--select-caret-light);
-  background-repeat: no-repeat;
-  background-position: right var(--space-12) center;
-  background-size: 16px;
-  padding-right: var(--space-32);
-}
-
-/* Add a dark mode specific caret */
-@media (prefers-color-scheme: dark) {
-  select.form-control {
-    background-image: var(--select-caret-dark);
-  }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
-}
-
-.form-control:focus {
-  border-color: var(--color-primary);
-  outline: var(--focus-outline);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.form-group {
-  margin-bottom: var(--space-16);
-}
-
-/* Card component */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card__body {
-  padding: var(--space-16);
-}
-
-.card__header,
-.card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
-}
-
-/* Status indicators - simplified with CSS variables */
-.status {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.status--success {
-  background-color: rgba(
-    var(--color-success-rgb, 33, 128, 141),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-success);
-  border: 1px solid
-    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
-}
-
-.status--error {
-  background-color: rgba(
-    var(--color-error-rgb, 192, 21, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-error);
-  border: 1px solid
-    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
-}
-
-.status--warning {
-  background-color: rgba(
-    var(--color-warning-rgb, 168, 75, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-warning);
-  border: 1px solid
-    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
-}
-
-.status--info {
-  background-color: rgba(
-    var(--color-info-rgb, 98, 108, 113),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-info);
-  border: 1px solid
-    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
-}
-
-/* Container layout */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-16);
-  padding-left: var(--space-16);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
-}
-
-/* Utility classes */
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
-}
-
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
-
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
-}
-
-/* END PERPLEXITY DESIGN SYSTEM */
-/* Perplexity Design System */
-:root {
-  /* Gensyn Modern Color Palette */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  
-  /* Primary Backgrounds - Safe Dark Theme (NO BLACK) */
-  --gensyn-bg-primary: #1a1a1a;
-  --gensyn-bg-secondary: #2d2d2d;
-  --gensyn-bg-card: #374151;
-  --gensyn-bg-surface: #2d2d2d;
-  
-  /* Accent Colors - Electric Blue & Purple */
-  --gensyn-blue: #007BFF;
-  --gensyn-blue-light: #3B82F6;
-  --gensyn-blue-hover: #0056D6;
-  --gensyn-purple: #8B5CF6;
-  --gensyn-purple-light: #A855F7;
-  --gensyn-purple-dark: #7C3AED;
-  
-  /* Orange Highlights */
-  --gensyn-orange: #FF6B35;
-  --gensyn-orange-light: #FF8C42;
-  --gensyn-orange-hover: #E5562A;
-  
-  /* Text Colors */
-  --gensyn-text-primary: #FFFFFF;
-  --gensyn-text-secondary: #E5E7EB;
-  --gensyn-text-muted: #9CA3AF;
-  --gensyn-text-accent: #60A5FA;
-  
-  /* Glass Morphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(20px);
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #007BFF 0%, #8B5CF6 100%);
-  --gradient-secondary: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
-  --gradient-text: linear-gradient(135deg, #60A5FA 0%, #A855F7 100%);
-  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-  
-  /* Legacy color mappings for compatibility */
-  --color-cream-50: var(--gensyn-bg-primary);
-  --color-cream-100: var(--gensyn-bg-secondary);
-  --color-gray-200: var(--gensyn-text-secondary);
-  --color-gray-300: var(--gensyn-text-muted);
-  --color-gray-400: var(--gensyn-text-muted);
-  --color-slate-500: var(--gensyn-text-muted);
-  --color-brown-600: var(--gensyn-text-muted);
-  --color-charcoal-700: var(--gensyn-bg-primary);
-  --color-charcoal-800: var(--gensyn-bg-secondary);
-  --color-slate-900: var(--gensyn-text-primary);
-  --color-teal-300: var(--gensyn-blue-light);
-  --color-teal-400: var(--gensyn-blue);
-  --color-teal-500: var(--gensyn-blue);
-  --color-teal-600: var(--gensyn-blue-hover);
-  --color-teal-700: var(--gensyn-blue-hover);
-  --color-teal-800: var(--gensyn-blue);
-  --color-red-400: #F87171;
-  --color-red-500: #EF4444;
-  --color-orange-400: var(--gensyn-orange-light);
-  --color-orange-500: var(--gensyn-orange);
-
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
-
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08);
-  --color-bg-2: rgba(245, 158, 11, 0.08);
-  --color-bg-3: rgba(34, 197, 94, 0.08);
-  --color-bg-4: rgba(239, 68, 68, 0.08);
-  --color-bg-5: rgba(147, 51, 234, 0.08);
-  --color-bg-6: rgba(249, 115, 22, 0.08);
-  --color-bg-7: rgba(236, 72, 153, 0.08);
-  --color-bg-8: rgba(6, 182, 212, 0.08);
-
-  /* Semantic Color Tokens - Safe Dark Theme */
-  --color-background: #1a1a1a;
-  --color-surface: rgba(255, 255, 255, 0.08);
-  --color-text: #ffffff;
-  --color-text-secondary: #e5e7eb;
-  --color-primary: var(--gensyn-blue);
-  --color-primary-hover: var(--gensyn-blue-hover);
-  --color-primary-active: var(--gensyn-purple);
-  --color-secondary: rgba(255, 255, 255, 0.08);
-  --color-secondary-hover: rgba(255, 255, 255, 0.12);
-  --color-secondary-active: rgba(255, 255, 255, 0.16);
-  --color-border: var(--glass-border);
-  --color-btn-primary-text: var(--gensyn-text-primary);
-  --color-card-border: var(--glass-border);
-  --color-card-border-inner: rgba(255, 255, 255, 0.05);
-  --color-error: #F87171;
-  --color-success: var(--gensyn-blue-light);
-  --color-warning: var(--gensyn-orange);
-  --color-info: var(--gensyn-text-secondary);
-  --color-focus-ring: rgba(59, 130, 246, 0.4);
-  --color-select-caret: rgba(229, 231, 235, 0.8);
-
-  /* Typography */
-  --font-family-base: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --letter-spacing-tight: -0.01em;
-
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Modern Shadows for Dark Theme */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.3);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.6), 0 8px 16px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-
-  /* Animation */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-}
-
-/* Dark mode colors */
-/* Enhanced accessibility and focus states */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .background-logo {
-    animation: none;
-  }
-  
-  .page-root::before {
-    animation: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  :root {
-    --glass-bg: rgba(0, 0, 0, 0.9);
-    --glass-border: rgba(255, 255, 255, 0.8);
-  }
-  
-  .bubble {
-    border-width: 2px;
-  }
-  
-  .send-btn {
-    border-width: 2px;
-  }
-}
-
-/* Additional utility classes */
-.fade-in {
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.slide-up {
-  animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.glow-effect {
-  position: relative;
-}
-
-.glow-effect::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: var(--gradient-primary);
-  border-radius: inherit;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.glow-effect:hover::before {
-  opacity: 0.3;
-}
-
-/* Safe font loading with fallbacks */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-/* Fallback styles in case fonts fail to load */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background-color: #1a1a1a !important;
-  color: #ffffff !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* Base styles with safe fallbacks */
-html {
-  font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.5;
-  color: #ffffff;
-  background: #1a1a1a !important;
-  background-color: #1a1a1a !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-/* Enhanced fallback for Inter font */
-html {
-  font-family: var(--font-family-base, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  font-size: var(--font-size-base, 14px);
-  line-height: var(--line-height-normal, 1.5);
-  color: var(--color-text, #ffffff);
-  background: var(--gensyn-bg-primary, #1a1a1a);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background: var(--gensyn-bg-primary, #1a1a1a) !important;
-  background-color: #1a1a1a !important;
-  overflow-x: hidden;
-  min-height: 100vh;
-  color: #ffffff;
-}
-
-/* Emergency fallback styles */
-* {
-  box-sizing: border-box;
-}
-
-/* Ensure visibility even if CSS variables fail */
-.page-root {
-  background: #1a1a1a !important;
-  color: #ffffff !important;
-  min-height: 100vh;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Animated Background */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* Page Layout with safe fallbacks */
-.page-root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  background: var(--gensyn-bg-primary, #1a1a1a) !important;
-  background-color: #1a1a1a !important;
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
-  /* Disable complex animations that might cause issues */
-  /* animation: gradient-shift 20s ease infinite; */
-  background-size: 400% 400%;
-}
-
-/* Simplified gradient animation for better compatibility */
-@media (prefers-reduced-motion: no-preference) {
-  .page-root {
-    animation: gradient-shift 20s ease infinite;
-  }
-}
-
-.background-logo {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 400px;
-  background-image: url('https://cdn.prod.website-files.com/66bc6da8fe284e4693088ff7/66bc6da8fe284e4693088ffe_Gensyn-Symbol.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  opacity: 0.08;
-  z-index: 0;
-  pointer-events: none;
-  animation: float 8s ease-in-out infinite, pulse 4s ease-in-out infinite;
-}
-
-/* Floating particles effect */
-.page-root::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.3) 1px, transparent 1px),
-    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.3) 1px, transparent 1px);
-  background-size: 100px 100px, 150px 150px;
-  animation: float 12s ease-in-out infinite reverse;
-  opacity: 0.4;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Header with safe fallbacks */
-.topbar {
-  padding: 20px 32px;
-  background: var(--glass-bg, rgba(45, 45, 45, 0.8));
-  /* Fallback for backdrop-filter */
-  background-color: rgba(45, 45, 45, 0.8);
-  backdrop-filter: var(--glass-blur, blur(20px));
-  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
-  border-bottom: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10;
-  border-radius: 0 0 16px 16px;
-  margin-bottom: 8px;
-}
-
-/* Fallback when backdrop-filter is not supported */
-@supports not (backdrop-filter: blur(20px)) {
-  .topbar {
-    background: rgba(45, 45, 45, 0.95) !important;
-  }
-}
-
-.header-content {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.header-left {
-  /* Empty column for balance */
-}
-
-.header-center {
-  display: flex;
-  align-items: center;
-  gap: var(--space-16);
-  justify-self: center;
-  transition: transform 0.3s ease;
-}
-
-.header-center:hover {
-  transform: scale(1.02);
-}
-
-.header-right {
-  display: flex;
-  gap: var(--space-12);
-  align-items: center;
-  justify-self: end;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.brand-subtitle {
-  margin: 0;
-  font-size: var(--font-size-sm);
-  color: var(--gensyn-text-secondary);
-  opacity: 0.9;
-  font-weight: var(--font-weight-medium);
-  letter-spacing: 0.025em;
-}
-
-
-
-.nav-btn {
-  padding: var(--space-8) var(--space-16);
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--gensyn-text-primary);
-  text-decoration: none;
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(59, 130, 246, 0.1);
-  color: var(--gensyn-blue-light);
-}
-
-.nav-btn:active {
-  transform: translateY(0);
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
-  transition: all 0.3s ease;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
-  transform: rotate(5deg) scale(1.1);
-}
-
-.header-center h1 {
-  margin: 0;
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-  transition: all 0.3s ease;
-  line-height: 1.2;
-}
-
-.header-center h1:hover {
-  transform: translateY(-1px);
-  filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
-}
-
-/* Main Content Area */
-.center-area {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: var(--space-32);
-  padding: var(--space-32) var(--space-24);
-  position: relative;
-  z-index: 1;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-/* Chat Card with safe fallbacks */
-.chat-card {
-  background: var(--glass-bg, rgba(55, 65, 81, 0.8));
-  background-color: rgba(55, 65, 81, 0.8);
-  backdrop-filter: var(--glass-blur, blur(20px));
-  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
-  border-radius: 20px;
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  padding: 32px;
-  width: 100%;
-  max-width: 700px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  color: #ffffff;
-}
-
-/* Fallback when backdrop-filter is not supported */
-@supports not (backdrop-filter: blur(20px)) {
-  .chat-card {
-    background: rgba(55, 65, 81, 0.95) !important;
-  }
-}
-
-.chat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl), 0 0 30px rgba(59, 130, 246, 0.2);
-}
-
-.chat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--gradient-primary);
-  opacity: 0.6;
-}
-
-.card-title {
-  margin: 0 0 var(--space-12) 0;
-  font-size: var(--font-size-4xl);
-  font-weight: 800;
-  background: var(--gradient-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.muted {
-  margin: 0 0 var(--space-32) 0;
-  color: var(--gensyn-text-secondary);
-  font-size: var(--font-size-lg);
-  opacity: 0.8;
-  line-height: 1.5;
-}
-
-/* Info Card with safe fallbacks */
-.info-card {
-  background: var(--glass-bg, rgba(55, 65, 81, 0.8));
-  background-color: rgba(55, 65, 81, 0.8);
-  backdrop-filter: var(--glass-blur, blur(20px));
-  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
-  border-radius: 20px;
-  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 32px;
-  width: 100%;
-  max-width: 380px;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  color: #ffffff;
-}
-
-/* Fallback when backdrop-filter is not supported */
-@supports not (backdrop-filter: blur(20px)) {
-  .info-card {
-    background: rgba(55, 65, 81, 0.95) !important;
-  }
-}
-
-.info-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl), 0 0 20px rgba(139, 92, 246, 0.15);
-}
-
-.info-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--gradient-secondary);
-  opacity: 0.6;
-}
-
-.info-card h3 {
-  margin: 0 0 var(--space-24) 0;
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  color: var(--gensyn-text-primary);
-  letter-spacing: -0.01em;
-}
-
-.principles-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.principles-list li {
-  margin-bottom: var(--space-20);
-  padding: var(--space-16) var(--space-20);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  position: relative;
-  color: var(--gensyn-text-secondary);
-  line-height: 1.6;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.principles-list li:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: translateX(4px);
-}
-
-.principles-list li:before {
-  content: '🔸';
-  position: absolute;
-  left: var(--space-12);
-  top: var(--space-16);
-  font-size: 12px;
-}
-
-.principles-list li:last-child {
-  margin-bottom: 0;
-}
-
-.principles-list strong {
-  color: var(--gensyn-blue-light);
-  font-weight: 600;
-  display: block;
-  margin-bottom: var(--space-4);
-}
-
-/* Chat Interface */
-.chat-root {
-  display: flex;
-  flex-direction: column;
-  height: 450px;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  padding: var(--space-4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  padding: var(--space-20);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-20);
-  margin-bottom: var(--space-20);
-  scroll-behavior: smooth;
-}
-
-.message {
-  display: flex;
-  width: 100%;
-  animation: slideIn 0.3s ease-out;
-}
-
-.message.user {
-  justify-content: flex-end;
-}
-
-.message.bot {
-  justify-content: flex-start;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes typing {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0.3; }
-}
-
-.bubble {
-  max-width: 85%;
-  padding: var(--space-16) var(--space-20);
-  border-radius: 18px;
-  font-size: var(--font-size-base);
-  line-height: 1.6;
-  word-wrap: break-word;
-  position: relative;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.2s ease;
-}
-
-.bubble:hover {
-  transform: scale(1.02);
-}
-
-.message.user .bubble {
-  background: var(--gradient-primary);
-  color: var(--gensyn-text-primary);
-  border-bottom-right-radius: 6px;
-  box-shadow: var(--shadow-md), 0 0 20px rgba(59, 130, 246, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.message.bot .bubble {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--gensyn-text-primary);
-  border-bottom-left-radius: 6px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.message.user .bubble::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: -8px;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-left-color: var(--gensyn-blue);
-  border-bottom: 0;
-  border-right: 0;
-  margin-bottom: -8px;
-}
-
-.message.bot .bubble::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -8px;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-right-color: rgba(255, 255, 255, 0.08);
-  border-bottom: 0;
-  border-left: 0;
-  margin-bottom: -8px;
-}
-
-/* Modern Input Area */
-.input-row {
-  display: flex;
-  gap: var(--space-16);
-  align-items: flex-end;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  padding: var(--space-16);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.input-row:focus-within {
-  border-color: rgba(59, 130, 246, 0.4);
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1), var(--shadow-md);
-}
-
-.input-row.focused {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-1px);
-}
-
-/* Enhanced send button states */
-.send-btn.active {
-  background: var(--gradient-primary);
-  box-shadow: var(--shadow-lg), 0 0 25px rgba(59, 130, 246, 0.4);
-}
-
-/* Loading animation improvements */
-body.loaded {
-  opacity: 1;
-}
-
-body {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-/* Message bubble enhancements */
-.message.user .bubble {
-  position: relative;
-  overflow: hidden;
-}
-
-.message.user .bubble::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.message.user .bubble:hover::before {
-  left: 100%;
-}
-
-.message-textarea {
-  flex: 1;
-  min-height: 48px;
-  max-height: 120px;
-  padding: var(--space-12) var(--space-16);
-  border: none;
-  border-radius: 12px;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: 1.5;
-  color: var(--gensyn-text-primary);
-  background: rgba(255, 255, 255, 0.06);
-  resize: none;
-  outline: none;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.message-textarea:focus {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.01);
-}
-
-.message-textarea::placeholder {
-  color: var(--gensyn-text-muted);
-  font-style: italic;
-}
-
-.send-btn {
-  padding: var(--space-12) var(--space-24);
-  background: var(--gradient-primary);
-  color: var(--gensyn-text-primary);
-  border: none;
-  border-radius: 12px;
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  min-width: 90px;
-  height: 48px;
-  box-shadow: var(--shadow-md), 0 0 20px rgba(59, 130, 246, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.send-btn:hover:not(:disabled) {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: var(--shadow-lg), 0 0 30px rgba(59, 130, 246, 0.4);
-}
-
-.send-btn:active:not(:disabled) {
-  transform: translateY(0) scale(1.02);
-}
-
-.send-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.send-btn:focus {
-  outline: none;
-  box-shadow: var(--shadow-md), 0 0 0 4px rgba(59, 130, 246, 0.2);
-}
-
-.btn-loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.btn-loading::after {
-  content: '';
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.hidden {
-  display: none;
-}
-
-/* Modern Footer */
-.page-footer {
-  padding: var(--space-20) var(--space-32);
-  text-align: center;
-  color: var(--gensyn-text-muted);
-  font-size: var(--font-size-sm);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-top: 1px solid var(--glass-border);
-  border-radius: 16px 16px 0 0;
-  margin-top: var(--space-8);
-  position: relative;
-  z-index: 10;
-}
-
-.footer-link {
-  color: var(--gensyn-blue-light);
-  text-decoration: none;
-  font-weight: var(--font-weight-medium);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.footer-link:hover {
-  color: var(--gensyn-blue);
-  transform: translateY(-1px);
-  text-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
-}
-
-.footer-link:active {
-  transform: translateY(0);
-}
-
-/* Enhanced Responsive Design */
-@media (max-width: 1200px) {
-  .center-area {
-    gap: var(--space-24);
-    padding: var(--space-24);
-  }
-  
-  .chat-card {
-    max-width: 650px;
-  }
-  
-  .info-card {
-    max-width: 350px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .center-area {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-24);
-  }
-
-  .info-card {
-    max-width: 650px;
-  }
-  
-  .background-logo {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media (max-width: 768px) {
-  .center-area {
-    padding: var(--space-20) var(--space-16);
-  }
-
-  .topbar {
-    padding: var(--space-16) var(--space-20);
-  }
-
-  .header-content {
-    flex-direction: column;
-    gap: var(--space-16);
-    align-items: center;
-  }
-
-  .header-center {
-    justify-self: center;
-  }
-
-  .header-center h1 {
-    font-size: var(--font-size-2xl);
-    text-align: center;
-  }
-
-  .brand-subtitle {
-    text-align: center;
-    font-size: var(--font-size-xs);
-  }
-  
-  .logo {
-    width: 36px;
-    height: 36px;
-  }
-
-  .header-right {
-    flex-wrap: wrap;
-    justify-self: center;
-    gap: var(--space-8);
-  }
-
-  .nav-btn {
-    font-size: var(--font-size-xs);
-    padding: var(--space-6) var(--space-12);
-  }
-
-  .card-title {
-    font-size: var(--font-size-3xl);
-  }
-  
-  .chat-card, .info-card {
-    padding: var(--space-24);
-    border-radius: 16px;
-  }
-
-  .chat-root {
-    height: 380px;
-  }
-
-  .bubble {
-    max-width: 90%;
-    padding: var(--space-12) var(--space-16);
-  }
-  
-  .background-logo {
-    width: 250px;
-    height: 250px;
-  }
-}
-
-@media (max-width: 640px) {
-  .topbar {
-    padding: var(--space-12) var(--space-16);
-  }
-  
-  .logo-title-section h1 {
-    font-size: var(--font-size-xl);
-  }
-
-  .brand-subtitle {
-    font-size: var(--font-size-xs);
-  }
-
-  .header-right {
-    gap: var(--space-6);
-  }
-  
-  .chat-card {
-    padding: var(--space-20);
-  }
-  
-  .card-title {
-    font-size: var(--font-size-2xl);
-  }
-  
-  .chat-root {
-    height: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-  .center-area {
-    padding: var(--space-16);
-  }
-
-  .header-content {
-    gap: var(--space-12);
-  }
-
-  .header-center {
-    gap: var(--space-12);
-  }
-
-  .nav-btn {
-    padding: var(--space-4) var(--space-8);
-    font-size: var(--font-size-xs);
-  }
-  
-  .input-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-12);
-  }
-
-  .send-btn {
-    width: 100%;
-    height: 44px;
-  }
-  
-  .bubble {
-    max-width: 95%;
-    font-size: var(--font-size-sm);
-  }
-  
-  .background-logo {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .brand {
-    gap: var(--space-12);
-  }
-  
-  .logo {
-    width: 32px;
-    height: 32px;
-  }
-
-  .header-center h1 {
-    font-size: var(--font-size-lg);
-  }
-
-  .brand-subtitle {
-    font-size: 10px;
-  }
+// Modern Gensyn AI Chat Application with Debug Features
+class GensynChat {
+    constructor() {
+        // Add console logging for debugging
+        console.log('🚀 Gensyn AI ChatBot initializing...');
+        
+        this.messages = [
+            { id: this.generateId(), sender: 'bot', text: "Hi! I'm Gensyn AI, your guide to decentralized machine intelligence. What would you like to explore today?", timestamp: new Date() }
+        ];
+        this.isLoading = false;
+        this.typingIndicator = null;
+        
+        try {
+            this.initializeElements();
+            this.bindEvents();
+            this.setCurrentYear();
+            this.initializeWelcomeTimestamp();
+            this.addEnhancedFeatures();
+            console.log('✅ Gensyn AI ChatBot initialized successfully');
+        } catch (error) {
+            console.error('❌ Error initializing Gensyn AI ChatBot:', error);
+            this.handleInitializationError(error);
+        }
+        
+        // Enhanced response database with sophisticated AI-like responses
+        this.conversationHistory = [];
+        this.responses = {
+            general_intro: "Gensyn is building the world's first decentralized machine learning compute protocol. We're creating a peer-to-peer network where anyone can contribute computational resources and participate in training AI models while earning rewards through our blockchain-based incentive system. This represents a fundamental shift from the current centralized AI development paradigm dominated by large tech companies.\n\nOur protocol addresses several critical challenges in the AI ecosystem: compute accessibility, training transparency, cost reduction, and democratic participation in AI development. By leveraging blockchain technology for coordination and verification, we're creating a trustless environment where participants can collaborate on training state-of-the-art models without needing to trust individual actors.",
+            
+            technical_details: "Our protocol implements a sophisticated combination of verifiable compute proofs and economic incentives to coordinate distributed GPU resources. At the core, we use cryptographic verification of training work through a novel proof-of-learning mechanism that ensures all participants contribute legitimate computational effort.\n\nThe technical architecture consists of three main layers: the consensus layer (blockchain-based coordination), the verification layer (cryptographic proof validation), and the execution layer (distributed training orchestration). We've developed custom protocols for gradient aggregation, model checkpointing, and byzantine fault tolerance to ensure training remains robust even with unreliable or malicious participants.\n\nOur smart contracts manage resource allocation, task distribution, and reward calculation automatically. The protocol supports various training paradigms including federated learning, distributed training, and parameter server architectures.",
+            
+            decentralized_ai: "Traditional AI development suffers from significant centralization issues. A handful of companies control the vast majority of compute resources, datasets, and talent necessary for training large-scale models. This creates barriers to entry, limits innovation, and concentrates power in the hands of a few entities.\n\nGensyn democratizes this by allowing individuals and organizations worldwide to pool their computing resources. Participants can contribute anything from a single GPU to entire data centers, creating a more resilient and accessible AI ecosystem. This distributed approach offers several advantages: reduced costs through competition, increased innovation through diverse participation, geographic distribution for better latency, and resistance to single points of failure.\n\nMoreover, decentralized AI training enables new forms of collaboration and data sharing while preserving privacy through techniques like differential privacy and secure multi-party computation.",
+            
+            blockchain_integration: "We leverage blockchain technology not just for payments, but as the foundational coordination layer for our distributed training network. Smart contracts manage the entire lifecycle of training jobs: from resource allocation and task assignment to progress verification and reward distribution.\n\nOur consensus mechanism is specifically designed for ML workloads, incorporating proof-of-learning algorithms that verify computational work has been performed correctly. This prevents various attack vectors including lazy evaluation, gradient manipulation, and model poisoning.\n\nThe blockchain also serves as an immutable audit trail for all training activities, enabling transparent and reproducible AI development. Researchers can verify exactly how models were trained, which data was used, and which participants contributed to the final result. This level of transparency is impossible with traditional centralized training approaches.\n\nTokenomics play a crucial role in aligning incentives: compute providers earn tokens for honest participation, while model trainers pay for resources. The token economy creates natural market dynamics for pricing compute resources and ensures sustainable network growth.",
+            
+            community_governance: "The Gensyn network is governed by its participants through a sophisticated decentralized autonomous organization (DAO) structure. Token holders can propose and vote on protocol upgrades, economic parameter adjustments, and strategic decisions about the platform's future.\n\nGovernance extends beyond simple voting to include technical committees, research working groups, and community councils that handle different aspects of the protocol. We've implemented quadratic voting mechanisms to prevent plutocracy and ensure smaller stakeholders have meaningful representation.\n\nProposal types include: protocol upgrades (consensus rules, verification algorithms), economic parameters (reward rates, transaction fees), integration approvals (new model architectures, hardware support), and community initiatives (grants, partnerships, educational programs).\n\nThe governance system is designed to evolve with the community's needs while maintaining the protocol's core principles of decentralization, transparency, and open participation.",
+            
+            compute_market: "Our marketplace creates a dynamic, efficient market for AI compute resources. The protocol automatically matches compute providers with training tasks based on hardware specifications, geographic location, availability, and pricing preferences.\n\nThe matching algorithm considers multiple factors: computational requirements (GPU memory, processing power, network bandwidth), quality metrics (historical performance, reliability scores), economic factors (pricing, payment terms), and task-specific needs (privacy requirements, regulatory compliance).\n\nPayments are handled through smart contracts with escrow mechanisms, ensuring providers are compensated for their work while protecting consumers from poor service. Our reputation system tracks participant behavior over time, creating incentives for high-quality service provision.\n\nThe marketplace supports various pricing models: fixed pricing, auction-based allocation, long-term contracts, and spot pricing for excess capacity. This flexibility allows both casual participants and professional compute providers to find suitable arrangements."
+        };
+    }
+    
+    generateId() {
+        return Math.random().toString(36).substr(2, 9);
+    }
+    
+    initializeWelcomeTimestamp() {
+        const welcomeTimestamp = document.getElementById('welcomeTimestamp');
+        if (welcomeTimestamp) {
+            welcomeTimestamp.textContent = this.formatTimestamp(new Date());
+        }
+    }
+    
+    handleInitializationError(error) {
+        console.error('Handling initialization error:', error);
+        // Ensure basic functionality even if some features fail
+        this.ensureBasicFunctionality();
+    }
+    
+    ensureBasicFunctionality() {
+        console.log('🔧 Setting up basic functionality...');
+        
+        // Ensure body has proper styles
+        document.body.style.backgroundColor = '#1a1a1a';
+        document.body.style.color = '#ffffff';
+        document.body.style.fontFamily = 'Arial, sans-serif';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        
+        // Ensure basic elements exist
+        if (!document.getElementById('messages')) {
+            console.warn('Messages container not found');
+        }
+        if (!document.getElementById('messageInput')) {
+            console.warn('Message input not found');
+        }
+        if (!document.getElementById('sendButton')) {
+            console.warn('Send button not found');
+        }
+    }
+
+    addEnhancedFeatures() {
+        try {
+            // Add keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    if (e.key === 'k') {
+                        e.preventDefault();
+                        this.focusInput();
+                    }
+                }
+                if (e.key === 'Escape') {
+                    if (this.messageInput) this.messageInput.blur();
+                }
+            });
+            
+            // Add smooth scrolling for messages
+            this.setupSmoothScrolling();
+            
+            // Initialize typing indicator
+            this.typingIndicator = document.getElementById('typingIndicator');
+            
+            // Add message character counter
+            this.setupCharacterCounter();
+            
+            console.log('✅ Enhanced features added successfully');
+        } catch (error) {
+            console.error('❌ Error adding enhanced features:', error);
+        }
+    }
+    
+    setupSmoothScrolling() {
+        let isScrolling = false;
+        this.messagesContainer.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+    }
+    
+    setupCharacterCounter() {
+        this.messageInput.addEventListener('input', () => {
+            const length = this.messageInput.value.length;
+            const maxLength = this.messageInput.maxLength;
+            
+            // Add visual feedback when approaching limit
+            if (length > maxLength * 0.8) {
+                this.messageInput.style.borderColor = 'var(--gensyn-orange)';
+            } else {
+                this.messageInput.style.borderColor = '';
+            }
+        });
+    }
+    
+    focusInput() {
+        this.messageInput.focus();
+        this.messageInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    formatTimestamp(date) {
+        return date.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            hour12: true 
+        });
+    }
+    
+    initializeElements() {
+        console.log('🔍 Initializing elements...');
+        
+        this.messagesContainer = document.getElementById('messages');
+        this.messageInput = document.getElementById('messageInput');
+        this.sendButton = document.getElementById('sendButton');
+        
+        // Check if critical elements exist
+        if (!this.messagesContainer) {
+            console.error('❌ Messages container not found');
+            throw new Error('Messages container not found');
+        }
+        if (!this.messageInput) {
+            console.error('❌ Message input not found');
+            throw new Error('Message input not found');
+        }
+        if (!this.sendButton) {
+            console.error('❌ Send button not found');
+            throw new Error('Send button not found');
+        }
+        
+        this.btnText = this.sendButton.querySelector('.btn-text');
+        this.btnLoading = this.sendButton.querySelector('.btn-loading');
+        
+        // Enhanced elements (optional)
+        this.typingIndicator = document.getElementById('typingIndicator');
+        
+        console.log('✅ Elements initialized successfully');
+    }
+    
+    bindEvents() {
+        this.sendButton.addEventListener('click', () => this.sendMessage());
+        
+        this.messageInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                this.sendMessage();
+            }
+        });
+        
+        // Enhanced auto-resize textarea with animation
+        this.messageInput.addEventListener('input', (e) => {
+            this.autoResizeTextarea();
+            this.handleInputFeedback();
+        });
+        
+        // Add focus/blur effects
+        this.messageInput.addEventListener('focus', () => {
+            this.messageInput.parentElement.classList.add('focused');
+        });
+        
+        this.messageInput.addEventListener('blur', () => {
+            this.messageInput.parentElement.classList.remove('focused');
+        });
+        
+        // Add button hover effects
+        this.sendButton.addEventListener('mouseenter', () => {
+            if (!this.isLoading) {
+                this.sendButton.style.transform = 'translateY(-2px) scale(1.05)';
+            }
+        });
+        
+        this.sendButton.addEventListener('mouseleave', () => {
+            if (!this.isLoading) {
+                this.sendButton.style.transform = '';
+            }
+        });
+    }
+    
+    autoResizeTextarea() {
+        this.messageInput.style.height = 'auto';
+        const newHeight = Math.min(this.messageInput.scrollHeight, 120);
+        this.messageInput.style.height = newHeight + 'px';
+        
+        // Smooth animation
+        this.messageInput.style.transition = 'height 0.2s ease';
+        setTimeout(() => {
+            this.messageInput.style.transition = '';
+        }, 200);
+    }
+    
+    handleInputFeedback() {
+        const text = this.messageInput.value.trim();
+        
+        // Update send button state
+        if (text.length > 0) {
+            this.sendButton.classList.add('active');
+        } else {
+            this.sendButton.classList.remove('active');
+        }
+        
+        // Add typing indication (future feature)
+        if (text.length > 2) {
+            this.sendButton.style.boxShadow = 'var(--shadow-md), 0 0 20px rgba(59, 130, 246, 0.4)';
+        } else {
+            this.sendButton.style.boxShadow = '';
+        }
+    }
+    
+    setCurrentYear() {
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    }
+    
+    async sendMessage() {
+        if (this.isLoading) return;
+        
+        const text = this.messageInput.value.trim();
+        if (!text) return;
+        
+        // Add user message with timestamp
+        const userMessage = {
+            id: this.generateId(),
+            sender: 'user',
+            text: text,
+            timestamp: new Date()
+        };
+        
+        this.addMessage(userMessage);
+        this.messageInput.value = '';
+        this.messageInput.style.height = 'auto';
+        this.handleInputFeedback();
+        
+        // Show enhanced loading state
+        this.setLoading(true);
+        this.showTypingIndicator();
+        
+        // Add to conversation history for context
+        this.conversationHistory.push({ role: 'user', text: text });
+        
+        // Simulate more realistic typing delay based on response length
+        const response = this.generateSophisticatedResponse(text);
+        const typingDelay = Math.min(3000, Math.max(1500, response.length * 20));
+        
+        setTimeout(() => {
+            this.hideTypingIndicator();
+            
+            const botMessage = {
+                id: this.generateId(),
+                sender: 'bot',
+                text: response,
+                timestamp: new Date()
+            };
+            
+            // Add bot response to history
+            this.conversationHistory.push({ role: 'assistant', text: response });
+            
+            this.addMessage(botMessage);
+            this.setLoading(false);
+            
+            // Focus back to input for continued conversation
+            setTimeout(() => {
+                this.messageInput.focus();
+            }, 500);
+        }, typingDelay);
+    }
+    
+    showTypingIndicator() {
+        if (this.typingIndicator) {
+            this.typingIndicator.classList.remove('hidden');
+            this.typingIndicator.classList.add('fade-in');
+            this.scrollToBottom(true);
+        }
+    }
+    
+    hideTypingIndicator() {
+        if (this.typingIndicator) {
+            this.typingIndicator.classList.add('hidden');
+            this.typingIndicator.classList.remove('fade-in');
+        }
+    }
+    
+    addMessage(message) {
+        this.messages.push(message);
+        this.renderMessage(message);
+        this.scrollToBottom();
+    }
+    
+    renderMessage(message) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${message.sender}`;
+        messageDiv.setAttribute('data-message-id', message.id);
+        
+        // Create bubble with enhanced styling
+        const bubbleClass = message.sender === 'bot' && message.text.includes('Gensyn AI') ? 'bubble welcome-message' : 'bubble';
+        
+        const timestamp = message.timestamp ? this.formatTimestamp(message.timestamp) : '';
+        
+        messageDiv.innerHTML = `
+            <div class="${bubbleClass}">
+                ${this.escapeHtml(message.text)}
+                <div class="message-actions">
+                    <button class="copy-btn" onclick="gensynChat.copyMessage('${message.id}')" title="Copy message">
+                        Copy
+                    </button>
+                </div>
+            </div>
+            ${timestamp ? `<div class="message-timestamp">${timestamp}</div>` : ''}
+        `;
+        
+        // Add entrance animation
+        messageDiv.style.opacity = '0';
+        messageDiv.style.transform = 'translateY(10px)';
+        
+        this.messagesContainer.appendChild(messageDiv);
+        
+        // Trigger entrance animation
+        setTimeout(() => {
+            messageDiv.style.transition = 'all 0.3s ease';
+            messageDiv.style.opacity = '1';
+            messageDiv.style.transform = 'translateY(0)';
+        }, 50);
+    }
+    
+    copyMessage(messageId) {
+        const message = this.messages.find(m => m.id === messageId);
+        if (message) {
+            navigator.clipboard.writeText(message.text).then(() => {
+                this.showToast('Message copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = message.text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                this.showToast('Message copied to clipboard!');
+            });
+        }
+    }
+    
+    showToast(message) {
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            color: var(--gensyn-text-primary);
+            padding: var(--space-12) var(--space-16);
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg);
+            z-index: 10000;
+            transition: all 0.3s ease;
+            transform: translateY(-10px);
+            opacity: 0;
+        `;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+        }, 50);
+        
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 2000);
+    }
+    
+    setLoading(loading) {
+        this.isLoading = loading;
+        this.sendButton.disabled = loading;
+        
+        if (loading) {
+            this.btnText.classList.add('hidden');
+            this.btnLoading.classList.remove('hidden');
+            this.sendButton.style.transform = '';
+            this.sendButton.style.cursor = 'not-allowed';
+        } else {
+            this.btnText.classList.remove('hidden');
+            this.btnLoading.classList.add('hidden');
+            this.sendButton.style.cursor = 'pointer';
+        }
+    }
+    
+    scrollToBottom(smooth = true) {
+        const scrollOptions = {
+            top: this.messagesContainer.scrollHeight,
+            behavior: smooth ? 'smooth' : 'instant'
+        };
+        
+        this.messagesContainer.scrollTo(scrollOptions);
+    }
+    
+    generateSophisticatedResponse(userText) {
+        const lowerText = userText.toLowerCase();
+        
+        // Analyze conversation context for more intelligent responses
+        const context = this.getConversationContext();
+        
+        // Primary topic detection with detailed responses
+        if (lowerText.includes('what is gensyn') || lowerText.includes('about gensyn') || lowerText.includes('explain gensyn')) {
+            return this.responses.general_intro + (context.hasDiscussedTechnical ? "" : "\n\nWould you like me to dive deeper into any specific aspect - perhaps our technical architecture, tokenomics, or how to get started as a compute provider?");
+        }
+        
+        if (lowerText.includes('technical') || lowerText.includes('architecture') || lowerText.includes('how does it work') || lowerText.includes('implementation')) {
+            context.hasDiscussedTechnical = true;
+            return this.responses.technical_details + "\n\nThe beauty of our approach is that it maintains the performance characteristics of centralized training while providing the benefits of decentralization. Are there specific technical aspects you'd like me to elaborate on?"
+        }
+        
+        if (lowerText.includes('blockchain') || lowerText.includes('protocol') || lowerText.includes('smart contract') || lowerText.includes('consensus')) {
+            return this.responses.blockchain_integration + "\n\nThis blockchain-native approach to AI training is what sets Gensyn apart from traditional cloud computing providers. The transparency and verifiability are game-changing for the AI research community.";
+        }
+        
+        if (lowerText.includes('decentraliz') || lowerText.includes('distributed') || lowerText.includes('why decentralized')) {
+            return this.responses.decentralized_ai + "\n\nThe shift towards decentralized AI isn't just about technology—it's about creating a more equitable future where AI development isn't controlled by a handful of corporations. This democratization is essential for innovation and fairness.";
+        }
+        
+        if (lowerText.includes('governance') || lowerText.includes('dao') || lowerText.includes('community') || lowerText.includes('voting')) {
+            return this.responses.community_governance + "\n\nThis governance model ensures that Gensyn evolves according to the needs and values of its community rather than the interests of a centralized entity. It's democracy applied to AI infrastructure.";
+        }
+        
+        if (lowerText.includes('marketplace') || lowerText.includes('compute market') || lowerText.includes('buying') || lowerText.includes('selling')) {
+            return this.responses.compute_market + "\n\nThe marketplace creates a truly global compute economy where resources can be utilized efficiently regardless of geographic boundaries. It's like an 'Uber for AI compute' but with proper economic incentives and quality guarantees.";
+        }
+        
+        // Follow-up and contextual responses
+        if (lowerText.includes('reward') || lowerText.includes('earn') || lowerText.includes('incentive') || lowerText.includes('money')) {
+            return "The reward system in Gensyn is designed to fairly compensate all participants based on their contributions. Compute providers earn tokens proportional to the computational work they perform, while also receiving bonuses for high reliability and performance.\n\nThe economic model creates sustainable incentives: providers are motivated to maintain high-quality hardware and reliable connections, while the competitive marketplace keeps prices fair for consumers. Token rewards are distributed automatically through smart contracts, ensuring transparent and timely payments.\n\nBeyond direct monetary rewards, participants also benefit from being part of advancing the field of AI and contributing to models that might become widely used.";
+        }
+        
+        if (lowerText.includes('gpu') || lowerText.includes('hardware') || lowerText.includes('requirements') || lowerText.includes('setup')) {
+            return "Getting started as a compute provider on Gensyn is designed to be accessible to a wide range of hardware configurations. While high-end GPUs like H100s or A100s are ideal for large training jobs, even consumer-grade GPUs can participate in certain tasks.\n\nThe protocol automatically matches your hardware capabilities with appropriate training tasks. Our software handles all the complex networking, synchronization, and verification automatically—you just need to run our client and specify your availability.\n\nWe support NVIDIA GPUs with CUDA compute capability 6.0+, and we're working on expanding support for AMD and other hardware. The client software handles driver management, memory optimization, and fault recovery to maximize your earning potential while protecting your hardware.";
+        }
+        
+        if (lowerText.includes('model') || lowerText.includes('training') || lowerText.includes('ml') || lowerText.includes('ai model')) {
+            return "Gensyn supports training a wide variety of model architectures, from transformer-based language models to computer vision networks, reinforcement learning agents, and specialized scientific computing models.\n\nOur protocol is architecture-agnostic, meaning researchers can train virtually any model that can be parallelized. We provide optimized implementations for popular frameworks like PyTorch and TensorFlow, with custom optimizations for distributed training scenarios.\n\nThe platform particularly excels at large-scale training that would be cost-prohibitive on traditional cloud platforms. We've successfully demonstrated training of billion-parameter models across hundreds of distributed GPUs with performance comparable to centralized alternatives.\n\nResearchers benefit from the cost savings, while also contributing to a more open and collaborative AI ecosystem.";
+        }
+        
+        if (lowerText.includes('security') || lowerText.includes('trust') || lowerText.includes('verification') || lowerText.includes('safety')) {
+            return "Security is paramount in Gensyn's design. We've implemented multiple layers of protection against various attack vectors common in distributed systems:\n\n**Verification Layer**: All computational work is cryptographically verified using our proof-of-learning mechanism. This prevents participants from submitting fake work or manipulating gradients.\n\n**Byzantine Fault Tolerance**: The protocol can handle up to 33% malicious participants while maintaining training integrity through redundant computation and statistical verification.\n\n**Economic Security**: The token-based incentive system makes attacks economically unfeasible—honest participation is always more profitable than malicious behavior.\n\n**Privacy Protection**: We support various privacy-preserving techniques including differential privacy, secure aggregation, and federated learning approaches.\n\nThe combination of cryptographic, economic, and algorithmic security measures creates a robust system that's actually more secure than many centralized alternatives.";
+        }
+        
+        if (lowerText.includes('cost') || lowerText.includes('price') || lowerText.includes('expensive') || lowerText.includes('cheap')) {
+            return "One of Gensyn's major value propositions is dramatically reducing the cost of AI training through competition and efficiency improvements:\n\n**Cost Reduction**: By creating a competitive marketplace, prices naturally settle at levels that reflect true marginal costs rather than monopolistic premiums. Early estimates suggest 60-80% cost reductions compared to major cloud providers.\n\n**Efficiency Gains**: Our protocol eliminates many inefficiencies in traditional cloud computing: no idle time charges, optimized resource allocation, and automatic scaling based on actual computational needs.\n\n**Transparent Pricing**: All pricing is handled through smart contracts with transparent market mechanisms. No hidden fees, complex pricing tiers, or vendor lock-in.\n\n**Democratic Access**: Lower costs mean smaller research teams, startups, and developing countries can access the computational resources needed for cutting-edge AI research.\n\nThis cost reduction doesn't come at the expense of quality—our verification systems ensure that cheaper compute maintains the same standards as premium alternatives.";
+        }
+        
+        // Contextual greetings and responses
+        if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('hey')) {
+            const greetings = [
+                "Hello! I'm excited to discuss Gensyn's mission to democratize AI development. We're building something truly revolutionary—a decentralized network that makes advanced AI training accessible to everyone, not just tech giants.",
+                "Hi there! Great to meet you. I'm here to help you understand how Gensyn is transforming AI development through decentralized compute networks. What aspect interests you most—the technical architecture, economic model, or perhaps how to get involved?",
+                "Hey! Welcome to learning about Gensyn. We're creating the world's first decentralized machine learning compute protocol, and I'd love to share how we're making AI development more open, transparent, and accessible."
+            ];
+            return greetings[Math.floor(Math.random() * greetings.length)];
+        }
+        
+        if (lowerText.includes('thank') || lowerText.includes('appreciate')) {
+            return "You're very welcome! I'm passionate about sharing Gensyn's vision because I believe decentralized AI represents a fundamental shift toward a more equitable and innovative future. Feel free to ask about anything else—technical details, getting involved as a provider or consumer, or our roadmap for the future.";
+        }
+        
+        // Advanced contextual responses based on conversation history
+        if (context.hasDiscussedTechnical && (lowerText.includes('more') || lowerText.includes('detail') || lowerText.includes('deeper'))) {
+            return "Let me dive deeper into some fascinating technical aspects:\n\n**Gradient Compression**: We use advanced compression algorithms to minimize bandwidth requirements during distributed training, achieving up to 10x reduction in communication overhead.\n\n**Fault Recovery**: Our checkpointing system can recover from node failures in under 30 seconds, automatically redistributing work to healthy nodes.\n\n**Load Balancing**: Machine learning algorithms dynamically optimize work distribution based on real-time performance metrics, hardware capabilities, and network conditions.\n\n**Quality Assurance**: We implement statistical tests to detect and isolate underperforming or malicious nodes, maintaining training quality even in adversarial conditions.\n\nThese innovations make distributed training on Gensyn not just cheaper, but often faster and more reliable than centralized alternatives.";
+        }
+        
+        // Default sophisticated responses
+        const defaultResponses = [
+            "That's an interesting question about Gensyn. Our decentralized approach to AI training represents a paradigm shift from the current centralized model. By distributing computational work across a global network of participants, we're not just reducing costs—we're democratizing access to the tools needed for cutting-edge AI research. The implications go far beyond just technical improvements; we're creating a more equitable future for AI development.",
+            "Great question! Gensyn's protocol addresses several critical challenges in today's AI landscape. The concentration of computational resources in the hands of a few large companies has created barriers to innovation and limited who can participate in AI development. Our blockchain-based coordination mechanism ensures that computational work is verifiable and fairly compensated, creating a trustless environment for collaborative AI training.\n\nThis represents a fundamental shift from the current paradigm where AI development is dominated by tech giants with massive data centers.",
+            "I appreciate your curiosity about Gensyn! What makes our approach unique is the combination of cryptographic verification, economic incentives, and modular architecture. This allows us to maintain the performance characteristics of centralized training while providing the benefits of decentralization: lower costs, increased accessibility, and democratic governance of AI development.\n\nWe're not just building technology—we're creating a movement toward truly democratic AI development."
+        ];
+        
+        return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+    }
+    
+    getConversationContext() {
+        // Simple context tracking based on conversation history
+        const context = {
+            hasDiscussedTechnical: false,
+            hasDiscussedEconomics: false,
+            messageCount: this.conversationHistory.length
+        };
+        
+        const allText = this.conversationHistory.map(msg => msg.text.toLowerCase()).join(' ');
+        
+        if (allText.includes('technical') || allText.includes('architecture') || allText.includes('protocol')) {
+            context.hasDiscussedTechnical = true;
+        }
+        
+        if (allText.includes('token') || allText.includes('reward') || allText.includes('cost') || allText.includes('economic')) {
+            context.hasDiscussedEconomics = true;
+        }
+        
+        return context;
+    }
+    
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+}
+
+// Initialize the chat when the page loads
+let gensynChat;
+
+// Add error handling for the entire app
+window.addEventListener('error', (e) => {
+    console.error('🚨 Global error:', e.error);
+    console.log('💡 Tip: Check if all CSS and JS files loaded correctly');
+});
+
+window.addEventListener('unhandledrejection', (e) => {
+    console.error('🚨 Unhandled promise rejection:', e.reason);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('📄 DOM Content Loaded - Starting Gensyn AI ChatBot');
+    
+    try {
+        // Ensure basic styles are applied
+        document.body.style.backgroundColor = '#1a1a1a';
+        document.body.style.color = '#ffffff';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.fontFamily = 'Inter, -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+        
+        gensynChat = new GensynChat();
+        
+        // Add some loading delay for better UX
+        document.body.classList.add('loaded');
+        
+        // Initialize enhanced features
+        initializeEnhancedFeatures();
+        
+        console.log('🎉 Gensyn AI ChatBot fully loaded!');
+    } catch (error) {
+        console.error('💥 Failed to initialize Gensyn AI ChatBot:', error);
+        // Show error message to user
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            background: #dc2626;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            z-index: 10000;
+            font-family: Arial, sans-serif;
+        `;
+        errorDiv.textContent = 'Error loading Gensyn AI ChatBot. Please refresh the page.';
+        document.body.appendChild(errorDiv);
+    }
+});
+
+// Fallback initialization if DOMContentLoaded doesn't fire
+setTimeout(() => {
+    if (!gensynChat) {
+        console.warn('⚠️ DOMContentLoaded may have failed, trying fallback initialization');
+        try {
+            gensynChat = new GensynChat();
+            console.log('✅ Fallback initialization successful');
+        } catch (error) {
+            console.error('❌ Fallback initialization failed:', error);
+        }
+    }
+}, 2000);
+
+function initializeEnhancedFeatures() {
+    // Add smooth page transitions
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    });
+    
+    // Observe elements for scroll animations
+    document.querySelectorAll('.chat-card, .info-card').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Add performance monitoring
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log(`⚡ Gensyn AI loaded in ${Math.round(perfData.loadEventEnd - perfData.fetchStart)}ms`);
+        });
+    }
+    
+    // Add service worker for offline support (future feature)
+    if ('serviceWorker' in navigator) {
+        // navigator.serviceWorker.register('/sw.js').catch(() => {});
+    }
 }
